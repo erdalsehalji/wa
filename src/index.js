@@ -21,3 +21,6 @@ app.get('/:fib', (req, res) => {
     res.send( `Fibonacci prvih ${b} brojeva : ${fibonacci(b)}`)
 })
 app.listen(port, () => console.log(`slusam na portu: ${port}`))
+
+/* RangeError: Maximum call stack size exceeded - premasuje se
+velicina stacka zbog previse rekurzivnih poziva*/
