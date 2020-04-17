@@ -25,7 +25,7 @@ app.post('/posts', (req, res) => {
 app.get('/posts', async (req, res) => {
     let db = await connect()
    
-    let cursor = await db.collection("posts").find({"postedAt": { $gt: 1571345268000 }})//izbaci sve sa postedAt vecim od ovog (6 months ago po unix-u)
+    let cursor = await db.collection("posts").find({"postedAt": { $gt: 1571345268000 }}).sort({"postedAt": 1})//izbaci sve sa postedAt vecim od ovog (6 months ago po unix-u)
    // let cursor = await db.collection("posts").find({}).sort({"postedAt": 1}).min({"postedAt": 1571345268000})//.hint({?})
     //izlistaj sve postove vremenski silazno koji imaju postedAt manji od 6 mjeseci po unixu
     //min je postavljen na 6 mjeseci unazad po unixu i svaki post kojim ima broj veci od 
